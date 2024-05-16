@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Math Course</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #2e8b57;
+        }
+        p {
+            font-size: 1.2em;
+        }
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 90%;
+        }
+        td {
+            border: 1px solid transparent;
+            padding: 20px;
+            width: 20%;
+        }
+        .week-icon {
+            width: 150px;
+            height: 150px;
+        }
+        .locked {
+            filter: grayscale(100%);
+            pointer-events: none;
+            cursor: not-allowed;
+        }
+        .unlocked {
+            filter: none;
+            pointer-events: auto;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to 6th Grade Math</h1>
+    <p>Click on the Week Icons to Access that week's content and assignments</p>
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <img src="https://hawthornacademy.instructure.com/courses/1683/files/668701/preview" alt="Week 1-1.png" data-api-endpoint="https://hawthornacademy.instructure.com/api/v1/courses/1683/files/668701" data-api-returntype="File" class="week-icon unlocked">
+                    <p>August 15-19</p>
+                </td>
+                <td>
+                    <img src="https://hawthornacademy.instructure.com/courses/1683/files/668702/preview" alt="Week 2-1.png" data-api-endpoint="https://hawthornacademy.instructure.com/api/v1/courses/1683/files/668702" data-api-returntype="File" class="week-icon locked" id="week2">
+                    <p>August 22-26</p>
+                </td>
+                <td>
+                    <img src="https://hawthornacademy.instructure.com/courses/1683/files/668703/preview" alt="Week 3-1.png" data-api-endpoint="https://hawthornacademy.instructure.com/api/v1/courses/1683/files/668703" data-api-returntype="File" class="week-icon locked" id="week3">
+                    <p>August 29-September 2</p>
+                </td>
+                <td>
+                    <img src="https://hawthornacademy.instructure.com/courses/1683/files/668704/preview" alt="Week 4-1.png" data-api-endpoint="https://hawthornacademy.instructure.com/api/v1/courses/1683/files/668704" data-api-returntype="File" class="week-icon locked" id="week4">
+                    <p>September 6-9</p>
+                </td>
+                <td>
+                    <img src="https://hawthornacademy.instructure.com/courses/1683/files/668706/preview" alt="Week 5-2.png" data-api-endpoint="https://hawthornacademy.instructure.com/api/v1/courses/1683/files/668706" data-api-returntype="File" class="week-icon locked" id="week5">
+                    <p>September 12-16</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img id="week6" class="week-icon locked" src="https://hawthornacademy.instructure.com/courses/1683/files/532673/preview" alt="Week 6 locked" data-api-endpoint="https://hawthornacademy.instructure.com/api/v1/courses/1683/files/532673" data-api-returntype="File">
+                    <p>September 19-22</p>
+                </td>
+                <td>
+                    <img id="week7" class="week-icon locked" src="https://hawthornacademy.instructure.com/courses/1683/files/532674/preview" alt="Week 7 locked" data-api-endpoint="https://hawthornacademy.instructure.com/api/v1/courses/1683/files/532674" data-api-returntype="File">
+                    <p>September 26-29</p>
+                </td>
+                <td>
+                    <img id="week8" class="week-icon locked" src="https://hawthornacademy.instructure.com/courses/1683/files/532675/preview" alt="Week 8 locked" data-api-endpoint="https://hawthornacademy.instructure.com/api/v1/courses/1683/files/532675" data-api-returntype="File">
+                    <p>October 3-7</p>
+                </td>
+                <td>
+                    <img id="week9" class="week-icon locked" src="https://hawthornacademy.instructure.com/courses/1683/files/532676/preview" alt="Week 9 locked" data-api-endpoint="https://hawthornacademy.instructure.com/api/v1/courses/1683/files/532676" data-api-returntype="File">
+                    <p>October 10-12</p>
+                </td>
+                <td>
+                    <img id="week10" class="week-icon locked" src="https://hawthornacademy.instructure.com/courses/1683/files/532677/preview" alt="Week 10 locked" data-api-endpoint="https://hawthornacademy.instructure.com/api/v1/courses/1683/files/532677" data-api-returntype="File">
+                    <p>October 18-21</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        // Date ranges for each week
+        const weekUnlockDates = {
+            week1: { start: new Date('2023-08-15'), end: new Date('2023-08-19') },
+            week2: { start: new Date('2023-08-22'), end: new Date('2023-08-26') },
+            week3: { start: new Date('2023-08-29'), end: new Date('2023-09-02') },
+            week4: { start: new Date('2023-09-06'), end: new Date('2023-09-09') },
+            week5: { start: new Date('2023-09-12'), end: new Date('2023-09-16') },
+            week6: { start: new Date('2023-09-19'), end: new Date('2023-09-22') },
+            week7: { start: new Date('2023-09-26'), end: new Date('2023-09-29') },
+            week8: { start: new Date('2023-10-03'), end: new Date('2023-10-07') },
+            week9: { start: new Date('2023-10-10'), end: new Date('2023-10-12') },
+            week10: { start: new Date('2023-10-18'), end: new Date('2023-10-21') }
+        };
+
+        // Function to check and unlock weeks based on date ranges
+        function unlockWeeksByDate() {
+            const currentDate = new Date();
+
+            for (let week in weekUnlockDates) {
+                const { start, end } = weekUnlockDates[week];
+                if (currentDate >= start && currentDate <= end) {
+                    const weekElement = document.getElementById(week);
+                    weekElement.classList.remove('locked');
+                    weekElement.classList.add('unlocked');
+                    weekElement.parentNode.querySelector('p').innerHTML = `<a href="https://hawthornacademy.instructure.com/courses/1683/pages/${week}">${week.replace('week', 'Week ')} - ${weekElement.parentNode.querySelector('p').textContent}</a>`;
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', unlockWeeksByDate);
+    </script>
+</body>
+</html>
